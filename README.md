@@ -34,7 +34,7 @@ used if a computation succeeds (instead of manually specifying the output).
 
 For more examples, see
 [the src/tests directory](https://github.com/PlasmaPower/brute-force/tree/master/src/tests).
-For documentation on the config or adaptors, see
+For documentation on the config and adaptors, see
 [the docs](https://docs.rs/brute-force).
 
 ## Configuration
