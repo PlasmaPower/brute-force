@@ -50,6 +50,20 @@ impl_for_primitive!(u32, i32);
 impl_for_primitive!(u64, i64);
 impl_for_primitive!(u128, i128);
 
+#[cfg(feature = "curve25519-dalek")]
+impl Start for curve25519_dalek::scalar::Scalar {
+    fn start_for_thread(_thread: usize, _thread_count: usize) -> Self {
+        Self::random(&mut rand::rngs::OsRng)
+    }
+}
+
+#[cfg(feature = "curve25519-dalek")]
+impl Advance for curve25519_dalek::scalar::Scalar {
+    fn advance(&mut self) {
+        *self += curve25519_dalek::scalar::Scalar::one();
+    }
+}
+
 macro_rules! impl_for_bytes {
     ($n:tt, $($t:tt)*) => {
         impl<$($t)*> Start for [u8; $n] {
@@ -121,18 +135,4 @@ mod impl_bytes {
     impl_for_bytes!(64,);
     impl_for_bytes!(128,);
     impl_for_bytes!(256,);
-}
-
-#[cfg(feature = "curve25519-dalek")]
-impl Start for curve25519_dalek::scalar::Scalar {
-    fn start_for_thread(_thread: usize, _thread_count: usize) -> Self {
-        Self::random(&mut rand::rngs::OsRng)
-    }
-}
-
-#[cfg(feature = "curve25519-dalek")]
-impl Advance for curve25519_dalek::scalar::Scalar {
-    fn advance(&mut self) {
-        *self += curve25519_dalek::scalar::Scalar::one();
-    }
 }

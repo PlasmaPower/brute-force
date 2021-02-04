@@ -1,3 +1,9 @@
+//! A library for brute forcing arbitrary computations.
+//! Check out the main entrypoint, [brute_force], or the various [adaptors] you
+//! can use to write simpler checking functions.
+//! For complete examples, look at
+//! [the tests directory](https://github.com/PlasmaPower/brute-force/tree/master/src/tests).
+
 use log::warn;
 use std::{
     sync::atomic::{self, AtomicBool},

@@ -1,11 +1,11 @@
 [package]
 name = "brute-force"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Lee Bousfield <ljbousfield@gmail.com>"]
 edition = "2018"
 license = "MIT"
 description = "A library for brute forcing arbitrary computations"
-respository = "https://github.com/PlasmaPower/brute-force"
+repository = "https://github.com/PlasmaPower/brute-force"
 documentation = "https://docs.rs/brute-force"
 
 [dependencies]
@@ -23,3 +23,6 @@ curve25519 = ["curve25519-dalek", "rand"]
 [dev-dependencies]
 blake2 = "0.9.1"
 hex = "0.4.2"
+
+[package.metadata.docs.rs]
+rustc-args = ["--features", "curve25519"]
