@@ -36,3 +36,12 @@ For more examples, see
 [the src/tests directory](https://github.com/PlasmaPower/brute-force/tree/master/src/tests).
 For documentation on the config or adaptors, see
 [the docs](https://docs.rs/brute-force).
+
+## Configuration
+
+You can change the number of threads used with the environment variable
+`BRUTE_FORCE_THREADS`.
+
+Inside the program, via the Config struct, you can manually override the thread
+count or change how often this library checks if a thread should stop. You can
+also set a timeout via the `brute_force_with_timeout` function.

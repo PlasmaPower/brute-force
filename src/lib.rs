@@ -22,8 +22,8 @@ pub use traits::{Advance, Start};
 #[derive(PartialEq, Eq, Debug, Clone, Copy)]
 pub struct Config {
     /// Number of threads to use.
-    /// Falls back on `BRUTE_FORCE_THREADS`, or if that doesn't exist, the
-    /// number of logical CPU cores.
+    /// Falls back on the `BRUTE_FORCE_THREADS` environment variable, or if
+    /// that doesn't exist, the number of logical CPU cores.
     pub threads: Option<usize>,
     /// The number of iterations to perform between checking if the computation
     /// is done (or timed out). Defaults to 512.
