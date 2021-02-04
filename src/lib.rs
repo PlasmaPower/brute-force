@@ -4,6 +4,12 @@
 //! For complete examples, look at
 //! [the tests directory](https://github.com/PlasmaPower/brute-force/tree/master/src/tests).
 
+#[cfg(feature = "curve25519-dalek")]
+#[cfg(not(feature = "curve25519"))]
+compile_error!(
+    "Enable brute-force curve25519 support via the `curve25519` feature, not `curve25519-dalek`",
+);
+
 use log::warn;
 use std::{
     sync::atomic::{self, AtomicBool},
