@@ -1,0 +1,25 @@
+[package]
+name = "brute-force"
+version = "0.1.0"
+authors = ["Lee Bousfield <ljbousfield@gmail.com>"]
+edition = "2018"
+license = "MIT"
+description = "A library for brute forcing arbitrary computations"
+respository = "https://github.com/PlasmaPower/brute-force"
+documentation = "https://docs.rs/brute-force"
+
+[dependencies]
+crossbeam-channel = "0.5.0"
+crossbeam-utils = "0.8.1"
+curve25519-dalek = { version = "3.0.2", optional = true }
+log = "0.4.14"
+num_cpus = "1.13.0"
+rand = { version = "0.7", optional = true }
+
+[features]
+nightly = []
+curve25519 = ["curve25519-dalek", "rand"]
+
+[dev-dependencies]
+blake2 = "0.9.1"
+hex = "0.4.2"
